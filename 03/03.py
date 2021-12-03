@@ -16,8 +16,6 @@ epsilon = epsilon_bin.dot(2**np.arange(epsilon_bin.size)[::-1])[0]
 print(gamma*epsilon)
 
 # Part 2
-
-
 def calculate_levels(values, larger):
     remaining_values = values
     i = 0
