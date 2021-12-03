@@ -40,6 +40,3 @@ def calculate_levels(values, larger):
 oxygen_level = calculate_levels(values, True)
 scrubber = calculate_levels(values, False)
 print(oxygen_level * scrubber)
-
-
-
