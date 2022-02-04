@@ -42,4 +42,35 @@ for bracket, value in Counter(illegal_brackets).items():
     elif bracket == '>':
         result += value * 25137
 
-print(result)
+print(f'Result part 1: {result}')
+
+## Part 2
+
+def find_missing_brackets(sequence):
+    open_brackets = []
+    for bracket in sequence:
+        if bracket == '(' or bracket == '[' or bracket == '{' or bracket == '<':
+            open_brackets.append(bracket)
+        else:
+            open_brackets.pop()
+    return open_brackets
+
+scores = []
+for sequence in input:
+    if find_illegal_brackets(sequence) is not None:
+        continue
+    missing_brackets = find_missing_brackets(sequence)[::-1]
+    score = 0
+    for bracket in missing_brackets:
+        score *= 5
+        if bracket == '(':
+            score += 1
+        elif bracket == '[':
+            score += 2
+        elif bracket == '{':
+            score += 3
+        elif bracket == '<':
+            score += 4
+    scores.append(score)
+
+print(f'Result part 2: {sorted(scores)[len(scores) // 2]}')
